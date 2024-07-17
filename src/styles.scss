@@ -1,0 +1,43 @@
+// styles.scss
+$primary-purple: #d500f9;
+
+.text-purple {
+  color: $primary-purple;
+}
+
+.btn-purple {
+  background-color: $primary-purple;
+  border-color: $primary-purple;
+  border-radius: 50px;
+  color: white;
+
+  &:hover {
+    background-color: darken($primary-purple, 10%);
+    border-color: darken($primary-purple, 10%);
+  }
+}
+
+.nav-link {
+  color: #455a64;
+  margin-right: 15px;
+
+  &:hover {
+    color: #000;
+  }
+
+  &.active {
+    color: $primary-purple;
+  }
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 8px;
+  }
+}
+
+.navbar {
+  background-color: white;
+}

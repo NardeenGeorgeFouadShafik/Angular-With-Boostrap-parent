@@ -1,0 +1,36 @@
+.text-purple {
+  color: #d500f9;
+}
+
+.btn-purple {
+  background-color: #d500f9;
+  border-color: #d500f9;
+  border-radius: 50px;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #c511f9;
+  border-color: #c511f9;
+}
+
+.nav-link {
+  color: #455a64;
+  margin-right: 15px;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 8px;
+  }
+}
+
+.navbar {
+  background-color: white;
+}
