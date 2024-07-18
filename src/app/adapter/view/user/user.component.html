@@ -1,0 +1,32 @@
+<div class="container my-3 container-height w-100">
+  <app-user-header></app-user-header>
+  <div class="d-flex flex-row w-100 align-items-stretch container-height">
+    <div
+      class=""
+      [ngClass]="{
+        'w-75': (selectedUser$ | async)?.id,
+        'w-100': !(selectedUser$ | async)?.id
+      }"
+    >
+      <app-user-list
+        [users]="(users$ | async) || []"
+        (selectUser)="onSelectUser($event)"
+        [selectedUser]="(selectedUser$ | async) ?? undefined"
+      ></app-user-list>
+    </div>
+    @if((selectedUser$ | async)?.id){
+    <div class="w-25 h-100">
+      <app-user-actions
+        class="h-100"
+        [selectedUser]="(selectedUser$ | async) ?? undefined"
+        (activeEditMode)="onEditUser()"
+      ></app-user-actions>
+    </div>
+    }
+  </div>
+</div>
+<app-user-model
+  (submitUser)="onSubmitUser($event)"
+  [selectedUser]="(selectedUser$ | async) ?? undefined"
+></app-user-model>
+<app-delete-confirmation  (deleteUserClicked)="deleteUser($event)" [selectedUser]="(selectedUser$ | async) ?? undefined"></app-delete-confirmation>

@@ -1,43 +1,30 @@
-// styles.scss
-$primary-purple: #d500f9;
-
-.text-purple {
-  color: $primary-purple;
+$primary-purple: #9a57b5;
+:root {
+  --primary-purple: #9a57b5;
+  --meduim-grey: #e6e6e6;
+  --primary-light-purple: #f6ebfb;
+}
+body {
+  height: 100vh;
+  margin: 0;
 }
 
-.btn-purple {
-  background-color: $primary-purple;
-  border-color: $primary-purple;
-  border-radius: 50px;
-  color: white;
-
-  &:hover {
-    background-color: darken($primary-purple, 10%);
-    border-color: darken($primary-purple, 10%);
-  }
+.primary-btn-purple {
+  background-color: $primary-purple !important;
+  border-color: $primary-purple !important;
+}
+.no-border {
+  border: none;
+}
+.border-raduis {
+  border-radius: 25px !important;
 }
 
-.nav-link {
-  color: #455a64;
-  margin-right: 15px;
-
-  &:hover {
-    color: #000;
-  }
-
-  &.active {
-    color: $primary-purple;
-  }
+.primary-text-purple {
+  color: $primary-purple !important;
 }
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  img {
-    margin-right: 8px;
-  }
-}
-
-.navbar {
-  background-color: white;
+.primary-outline-btn-purple{
+   background-color: rgb(244, 243, 242) !important;
+  border-color: $primary-purple !important;
+  color:$primary-purple !important
 }

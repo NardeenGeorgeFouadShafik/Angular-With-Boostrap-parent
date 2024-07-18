@@ -1,0 +1,74 @@
+/* dotted-spinner.component.scss */
+.dotted-spinner {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--primary-purple);
+  border-radius: 50%;
+  animation: fade 1.5s linear infinite;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.dot:nth-child(1) {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:nth-child(2) {
+  top: 14.64%;
+  left: 85.36%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:nth-child(3) {
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:nth-child(4) {
+  top: 85.36%;
+  left: 85.36%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:nth-child(5) {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:nth-child(6) {
+  top: 85.36%;
+  left: 14.64%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:nth-child(7) {
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+
+.dot:nth-child(8) {
+  top: 14.64%;
+  left: 14.64%;
+  transform: translate(-50%, -50%);
+}

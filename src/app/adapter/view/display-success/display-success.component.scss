@@ -1,0 +1,6 @@
+// Print-specific styles
+@media print {
+  .toast-message {
+    display: none !important;
+  }
+}

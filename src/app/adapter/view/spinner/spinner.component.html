@@ -1,0 +1,15 @@
+<!-- dotted-spinner.component.html -->
+<div
+  class="d-flex flex-column justify-content-center align-items-center justify-content-center p-3"
+>
+  <div class="dotted-spinner mb-2">
+    <div
+      *ngFor="let dot of dots; let i = index"
+      class="dot"
+      [ngStyle]="{ 'animation-delay': i * 0.1 + 's' }"
+    ></div>
+  </div>
+  <div>
+    <span class="primary-text-purple">Loading more users</span>
+  </div>
+</div>

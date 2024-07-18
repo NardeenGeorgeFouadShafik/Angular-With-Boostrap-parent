@@ -1,0 +1,17 @@
+.clicked-row-background{
+    background-color: var(--primary-purple);
+}
+.row-background{
+     &.clicked {
+        background-color: var(--primary-purple);
+       cursor: pointer;
+      
+    }
+    &:hover {
+        background-color: var(--primary-light-purple);
+       cursor: pointer;
+       &.clicked {        background-color: var(--primary-purple);
+}
+    }
+    
+}

@@ -1,20 +1,29 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { NavBarComponent } from '../../nav-bar/nav-bar.component';
+import { CommonModule } from "@angular/common";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { UserCardComponent } from "../user-card/user-card.component";
+import { SpinnerComponent } from "../../spinner/spinner.component";
+import { User } from "../../../../domain/models/user.model";
+import { UserActionsComponent } from "../user-actions/user-actions.component";
 
 @Component({
-  selector: 'app-user-list',
+  selector: "app-user-list",
   standalone: true,
-  imports: [CommonModule, NavBarComponent],
-  templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.scss'
+  imports: [
+    CommonModule,
+    UserCardComponent,
+    SpinnerComponent,
+    UserActionsComponent
+  ],
+  templateUrl: "./user-list.component.html",
+  styleUrl: "./user-list.component.scss",
 })
-export class UserListComponent {
- users = [
-    { name: 'Vladimir Usov', image: 'assets/vladimir.jpg' },
-    { name: 'Hugo Assunção', image: 'assets/hugo.jpg' },
-    { name: 'Elwin Sharvill', image: 'assets/elwin.jpg' },
-    { name: 'Kevin Noboa', image: 'assets/kevin.jpg' },
-    { name: 'Mónica Ribeiro', image: 'assets/monica.jpg' }
-  ];
+export class UserListComponent{
+  @Input() users?: Partial<User>[];
+  @Input() selectedUser?: Partial<User>;
+  @Output() selectUser = new EventEmitter<Partial<User>>;
+  
+  constructor() { }
+  onSelectUser(user: Partial<User>) {
+    this.selectUser.emit(user);
+  }
 }

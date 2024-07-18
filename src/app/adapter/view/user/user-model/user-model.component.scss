@@ -1,0 +1,38 @@
+.modal-header {
+  border-bottom: none;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.user-icon-circle {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #6c757d;
+  position: absolute;
+  top: -33px;
+}
+
+.modal-title {
+  margin-top: 50px; /* Adjusted to give space for the icon */
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-footer {
+  justify-content: center;
+  border-top: none;
+}
+
+
+.icon-size{
+    font-size: 70px;
+}
