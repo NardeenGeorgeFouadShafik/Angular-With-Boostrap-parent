@@ -26,7 +26,6 @@ import {
   styleUrl: "./app.component.scss",
 })
 export class AppComponent implements OnInit {
-  title = "Angular-With-Bootstrap-parent";
   constructor(
     private store: Store<AppState>,
     private router: Router,
