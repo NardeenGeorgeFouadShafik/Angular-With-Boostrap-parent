@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
-import { map, switchMap, withLatestFrom } from "rxjs";
+import { delay, map, switchMap, withLatestFrom } from "rxjs";
 import { User } from "../../models/user.model";
 import { USER_SERVICE, UserService } from "../../outbound/user.service";
 import { UserActions } from "../actions/action-types";
@@ -11,9 +11,13 @@ import {
   userUpdated,
   userAdded,
   usersLoaded,
+  moreUsersLoaded,
 } from "../actions/user.actions";
 import { AppState } from "../reducers/app.reducer";
-import { selectSelectedUser } from "../selectors/user.selectors";
+import {
+  selectPageNumber,
+  selectSelectedUser,
+} from "../selectors/user.selectors";
 import {
   LOCAL_STORAGE_SERVICE,
   LocalStorageService,
@@ -35,15 +39,29 @@ export class UserEffects {
   loadUsers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.loadUsers),
-      switchMap((action) => {
-        return this.userService.getUsers();
+      withLatestFrom(this.store.select(selectPageNumber)),
+      switchMap(([action, pageNumber]) => {
+        //delay just to act as real server and see the spinner
+        return this.userService.getUsers(pageNumber).pipe(delay(3000));
       }),
       map((users: any) => {
         return usersLoaded(users.data);
       }),
     ),
   );
-
+  loadMoreUsers$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.loadMoreUsers),
+      withLatestFrom(this.store.select(selectPageNumber)),
+      switchMap(([action, pageNumber]) => {
+        //delay just to act as real server and see the spinner
+        return this.userService.getUsers(pageNumber).pipe(delay(3000));
+      }),
+      map((users: any) => {
+        return moreUsersLoaded(users.data);
+      }),
+    ),
+  );
   addUserWithAdmin$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.addUser),

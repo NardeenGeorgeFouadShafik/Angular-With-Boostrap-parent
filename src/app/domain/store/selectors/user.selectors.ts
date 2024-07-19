@@ -17,3 +17,17 @@ export const selectSelectedUser = createSelector(
     return userState.selectedUser;
   },
 );
+
+export const selectPageNumber = createSelector(
+  selectUserState,
+  (userState: UserState) => {
+    return userState.nextPageNumber;
+  },
+);
+
+export const selectHasMoreData = createSelector(
+  selectUserState,
+  (userState: UserState) => {
+    return userState.hasMoreData;
+  },
+);

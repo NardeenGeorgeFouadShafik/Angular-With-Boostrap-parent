@@ -24,6 +24,14 @@ export const isUsersLoading = createSelector(
   },
 );
 
+export const isMoreUsersLoading = createSelector(
+  selectPendingQueries,
+  (pendingQueries: string[]) => {
+    return pendingQueries.some(
+      (query) => query === UserActionNamesEnum.LOAD_MORE_USERS,
+    );
+  },
+);
 export const isUserLoading = createSelector(
   selectPendingQueries,
   (pendingQueries: string[]) => {

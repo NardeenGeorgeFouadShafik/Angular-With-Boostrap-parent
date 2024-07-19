@@ -21,9 +21,15 @@ export class UserListComponent {
   @Input() users?: Partial<User>[];
   @Input() selectedUser?: Partial<User>;
   @Output() selectUser = new EventEmitter<Partial<User>>();
+  @Input() hasMoreData?: boolean;
+  @Input() isMoreUsersLoading?: boolean;
+  @Output() loadMoreUsersClicked = new EventEmitter();
 
   constructor() {}
   onSelectUser(user: Partial<User>) {
     this.selectUser.emit(user);
+  }
+  loadMoreUsers() {
+    this.loadMoreUsersClicked.emit();
   }
 }

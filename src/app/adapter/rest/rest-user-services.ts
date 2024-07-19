@@ -7,8 +7,9 @@ import { UserService } from "../../domain/outbound/user.service";
 
 @Injectable()
 export class RestUserService implements UserService {
-  private static USERS_ENDPOINT_BASE_URL =
-    environment.backendUrl + "api/users/";
+  private static USERS_ENDPOINT_BASE_URL = environment.backendUrl + `api/users`;
+  private static Get_USERS_ENDPOINT_BASE_URL = (pageNumber: number) =>
+    RestUserService.USERS_ENDPOINT_BASE_URL + `?page=${pageNumber}`;
 
   constructor(private httpClient: HttpClient) {}
   createUser(user: Partial<User>): Observable<Partial<User>> {
@@ -19,8 +20,10 @@ export class RestUserService implements UserService {
       },
     );
   }
-  getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(RestUserService.USERS_ENDPOINT_BASE_URL);
+  getUsers(pageNumber: number): Observable<User[]> {
+    return this.httpClient.get<User[]>(
+      RestUserService.Get_USERS_ENDPOINT_BASE_URL(pageNumber),
+    );
   }
   getUser(id: number): Observable<User> {
     return this.httpClient.get<User>(

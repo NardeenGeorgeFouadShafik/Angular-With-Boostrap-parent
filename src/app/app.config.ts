@@ -13,7 +13,11 @@ import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { provideHttpClient, withFetch } from "@angular/common/http";
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withFetch,
+} from "@angular/common/http";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { environment } from "../environments/environment";
@@ -26,6 +30,7 @@ import { REST_SERVICES } from "./adapter/rest/rest-services";
 import { ConfirmationService, MessageService } from "primeng/api";
 import { DefaultLocalStorageService } from "./domain/services/default-local-storage.service";
 import { LOCAL_STORAGE_SERVICE } from "./domain/outbound/local-storage.service";
+import { AuthInterceptor } from "./shared/security/auth.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -64,5 +69,10 @@ export const appConfig: ApplicationConfig = {
     ...REST_SERVICES,
     MessageService,
     ConfirmationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
 };

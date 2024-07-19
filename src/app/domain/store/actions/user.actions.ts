@@ -20,7 +20,25 @@ export const usersLoaded = createAction(
     pending,
   }),
 );
+export const loadMoreUsers = createAction(
+  "[User List Page] Load More Users",
+  (
+    pending: string = `${PrefixEnum.BEGIN}_${UserActionNamesEnum.LOAD_MORE_USERS}`,
+  ) => ({
+    pending,
+  }),
+);
 
+export const moreUsersLoaded = createAction(
+  "[Load More Users Effect] More Users Loaded",
+  (
+    users: User[],
+    pending: string = `${PrefixEnum.END}_${UserActionNamesEnum.LOAD_MORE_USERS}`,
+  ) => ({
+    users,
+    pending,
+  }),
+);
 export const loadUser = createAction(
   "[User List Page] Load User ",
   (

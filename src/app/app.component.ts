@@ -7,10 +7,7 @@ import { AppState } from "./domain/store/reducers/app.reducer";
 import { isUserLoggedIn } from "./domain/store/selectors/auth.selectors";
 import { filter, withLatestFrom } from "rxjs";
 import { NavBarComponent } from "./adapter/view/nav-bar/nav-bar.component";
-import {
-  checkLogedInUser,
-  userLoggedInChecked,
-} from "./domain/store/actions/auth.actions";
+import { userLoggedInChecked } from "./domain/store/actions/auth.actions";
 import {
   LOCAL_STORAGE_SERVICE,
   LocalStorageService,

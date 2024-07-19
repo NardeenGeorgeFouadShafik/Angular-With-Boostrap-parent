@@ -8,12 +8,16 @@ export interface UserState {
   users: Partial<User>[];
   selectedUser?: Partial<User>;
   isEditUserDialogMode: boolean;
+  nextPageNumber: number;
+  hasMoreData: boolean;
 }
 
 export const initialState: UserState = {
   users: [],
   selectedUser: undefined,
   isEditUserDialogMode: false,
+  nextPageNumber: 1,
+  hasMoreData: true,
 };
 
 export const userReducer = createReducer(
@@ -22,6 +26,20 @@ export const userReducer = createReducer(
     return {
       ...state,
       users: [...action.users],
+      nextPageNumber: state.nextPageNumber + 1,
+      hasMoreData: action.users.length === 0 ? false : true,
+    };
+  }),
+  on(UserActions.moreUsersLoaded, (state, action) => {
+    return {
+      ...state,
+      users: !state.hasMoreData
+        ? [...state.users]
+        : [...state.users, ...action.users],
+      nextPageNumber: !state.hasMoreData
+        ? state.nextPageNumber
+        : state.nextPageNumber + 1,
+      hasMoreData: action.users.length === 0 ? false : true,
     };
   }),
   on(UserActions.userAdded, (state, action) => {

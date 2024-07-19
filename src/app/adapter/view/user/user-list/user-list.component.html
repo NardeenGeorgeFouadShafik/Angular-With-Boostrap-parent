@@ -7,5 +7,9 @@
     (selectUser)="onSelectUser($event)"
     [selectedUser]="selectedUser"
   ></app-user-card>
-  <app-spinner></app-spinner>
+  <app-spinner
+    [hasMoreData]="hasMoreData"
+    [isMoreUsersLoading]="isMoreUsersLoading"
+    (loadMoreUsersClicked)="loadMoreUsers()"
+  ></app-spinner>
 </div>

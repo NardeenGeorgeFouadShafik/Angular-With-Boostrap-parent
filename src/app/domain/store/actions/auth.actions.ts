@@ -17,16 +17,8 @@ export const userlogggedin = createAction(
     success: string = `${AuthActionNamesEnum.LOG_IN_USER}`,
   ) => ({ pending, success }),
 );
-export const checkLogedInUser = createAction(
-  "[App Component] Check LogedIn User",
-  (
-    pending: string = `${PrefixEnum.BEGIN}_${AuthActionNamesEnum.CHECK_LOGED_IN_USER}`,
-  ) => ({ pending }),
-);
+
 export const userLoggedInChecked = createAction(
   "[App Component] Check LogedIn User",
-  (
-    isUserLoggedIn: boolean,
-    pending: string = `${PrefixEnum.BEGIN}_${AuthActionNamesEnum.CHECK_LOGED_IN_USER}`,
-  ) => ({ isUserLoggedIn, pending }),
+  (isUserLoggedIn: boolean) => ({ isUserLoggedIn }),
 );

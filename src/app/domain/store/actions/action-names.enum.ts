@@ -14,4 +14,5 @@ export enum UserActionNamesEnum {
   ADD_USER = "addUser",
   UPDATE_USER = "updateUser",
   DELETE_USER = "deleteUser",
+  LOAD_MORE_USERS = "loadMoreUsers",
 }

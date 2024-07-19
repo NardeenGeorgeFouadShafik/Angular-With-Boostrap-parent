@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: "app-spinner",
@@ -9,5 +9,12 @@ import { Component } from "@angular/core";
   styleUrl: "./spinner.component.scss",
 })
 export class SpinnerComponent {
-  dots = Array(8).fill(0); // Array to generate 8 dots
+  @Input() hasMoreData?: boolean;
+  @Input() isMoreUsersLoading?: boolean;
+  @Output() loadMoreUsersClicked = new EventEmitter();
+  dots = Array(8).fill(0);
+
+  loadMoreUsers() {
+    this.loadMoreUsersClicked.emit();
+  }
 }
