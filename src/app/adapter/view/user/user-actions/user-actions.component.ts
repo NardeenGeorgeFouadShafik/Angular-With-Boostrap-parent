@@ -6,11 +6,12 @@ import {
   Output,
 } from "@angular/core";
 import { User } from "../../../../domain/models/user.model";
+import { I18NextModule } from "angular-i18next";
 
 @Component({
   selector: "app-user-actions",
   standalone: true,
-  imports: [],
+  imports: [I18NextModule],
   templateUrl: "./user-actions.component.html",
   styleUrl: "./user-actions.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,

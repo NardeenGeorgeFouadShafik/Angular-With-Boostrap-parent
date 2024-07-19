@@ -13,11 +13,12 @@ import {
   ReactiveFormsModule,
 } from "@angular/forms";
 import { User } from "../../../../domain/models/user.model";
+import { I18NextModule } from "angular-i18next";
 
 @Component({
   selector: "app-user-model",
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, I18NextModule],
   templateUrl: "./user-model.component.html",
   styleUrl: "./user-model.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -51,5 +52,11 @@ export class UserModelComponent implements OnInit {
       return `${this.selectedUser.first_name} ${this.selectedUser.last_name}`;
     }
     return "";
+  }
+
+  getTranslationKey(): string {
+    return this.selectedUser?.id
+      ? "translation:userModel.save"
+      : "translation:userModel.add";
   }
 }

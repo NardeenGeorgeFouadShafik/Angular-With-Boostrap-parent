@@ -4,15 +4,21 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
           <li class="breadcrumb-item">
-            <a href="#" class="text-decoration-none">Home</a>
+            <a href="#" class="text-decoration-none">{{
+              "translation:header.home" | i18next
+            }}</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="#" class="text-decoration-none">Dashboard</a>
+            <a href="#" class="text-decoration-none">{{
+              "translation:header.dashboard" | i18next
+            }}</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">Users List</li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {{ "translation:header.usersList" | i18next }}
+          </li>
         </ol>
       </nav>
-      <h1 class="h3">Users List</h1>
+      <h1 class="h3">{{ "translation:header.usersList" | i18next }}</h1>
     </div>
     <div class="col-md-4 d-flex justify-content-end">
       <button
@@ -20,7 +26,7 @@
         data-bs-toggle="modal"
         data-bs-target="#addUserModal"
       >
-        + New User
+        {{ "translation:header.newUser" | i18next }}
       </button>
     </div>
   </div>

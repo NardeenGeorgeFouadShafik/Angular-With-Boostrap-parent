@@ -1,13 +1,13 @@
 <div
   class="bg-white shadow rounded d-flex flex-column w-100 h-100 overflow-auto"
 >
- @for (user of users; track user) {
-  <app-user-card
-    [user]="user"
-    (selectUser)="onSelectUser($event)"
-    [selectedUser]="selectedUser"
-  ></app-user-card>
- }
+  @for (user of users; track user) {
+    <app-user-card
+      [user]="user"
+      (selectUser)="onSelectUser($event)"
+      [selectedUser]="selectedUser"
+    ></app-user-card>
+  }
   <app-spinner
     [hasMoreData]="hasMoreData"
     [isMoreUsersLoading]="isMoreUsersLoading"

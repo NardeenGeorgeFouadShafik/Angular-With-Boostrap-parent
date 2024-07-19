@@ -6,11 +6,12 @@ import {
   Output,
 } from "@angular/core";
 import { User } from "../../../domain/models/user.model";
+import { I18NextModule } from "angular-i18next";
 
 @Component({
   selector: "app-delete-confirmation",
   standalone: true,
-  imports: [],
+  imports: [I18NextModule],
   templateUrl: "./delete-confirmation.component.html",
   styleUrl: "./delete-confirmation.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -27,7 +27,8 @@
       data-bs-target="#addUserModal"
       (click)="onEditClicked()"
     >
-      <i class="bi bi-pencil-fill me-2"></i> Edit
+      <i class="bi bi-pencil-fill me-2"></i>
+      {{ "translation:userActions.edit" | i18next }}
     </button>
     <button
       type="button"
@@ -35,7 +36,8 @@
       data-bs-toggle="modal"
       data-bs-target="#deleteConfirmationModal"
     >
-      <i class="bi bi-trash-fill me-2"></i> Delete
+      <i class="bi bi-trash-fill me-2"></i>
+      {{ "translation:userActions.delete" | i18next }}
     </button>
   </div>
 </div>

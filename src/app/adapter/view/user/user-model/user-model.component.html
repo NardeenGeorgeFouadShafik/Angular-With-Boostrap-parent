@@ -16,9 +16,9 @@
       <div class="modal-body">
         <form [formGroup]="userForm!">
           <div class="mb-3">
-            <label for="name" class="form-label d-flex justify-content-start"
-              >Name</label
-            >
+            <label for="name" class="form-label d-flex justify-content-start">{{
+              "translation:userModel.name" | i18next
+            }}</label>
             <input
               type="text"
               class="form-control"
@@ -32,7 +32,7 @@
             <label
               for="jobTitle"
               class="form-label d-flex justify-content-start"
-              >Job title</label
+              >{{ "translation:userModel.jobTitle" | i18next }}</label
             >
             <input
               type="text"
@@ -55,7 +55,7 @@
           class="btn btn-outline-secondary primary-outline-btn-purple border-raduis px-4 py-2 w-50 m-3"
           data-bs-dismiss="modal"
         >
-          Cancel
+          {{ "translation:userModel.cancel" | i18next }}
         </button>
         <button
           type="button"
@@ -64,7 +64,7 @@
           data-bs-dismiss="modal"
           (click)="submit()"
         >
-          Add
+          {{ getTranslationKey() | i18next }}
         </button>
       </div>
     </div>
