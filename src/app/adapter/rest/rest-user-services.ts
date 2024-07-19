@@ -27,12 +27,12 @@ export class RestUserService implements UserService {
   }
   getUser(id: number): Observable<User> {
     return this.httpClient.get<User>(
-      RestUserService.USERS_ENDPOINT_BASE_URL + id,
+      RestUserService.USERS_ENDPOINT_BASE_URL + `/${id}`,
     );
   }
   editUser(id: number, user: Partial<User>): Observable<Partial<User>> {
     return this.httpClient.put<Partial<User>>(
-      RestUserService.USERS_ENDPOINT_BASE_URL + id,
+      RestUserService.USERS_ENDPOINT_BASE_URL + `/${id}`,
       { ...user },
     );
   }
