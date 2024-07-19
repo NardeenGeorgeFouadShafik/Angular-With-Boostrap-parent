@@ -15,29 +15,32 @@ import { I18NextModule } from "angular-i18next";
 @Component({
   selector: "app-login",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, I18NextModule ],
+  imports: [CommonModule, ReactiveFormsModule, I18NextModule],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss",
 })
 export class LoginComponent {
   loginForm?: FormGroup;
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private store: Store<AppState>,
-) {}
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email:["",  [Validators.required, Validators.pattern(EMAIL_PATTERN)]],
+      email: ["", [Validators.required, Validators.pattern(EMAIL_PATTERN)]],
       password: ["", Validators.required],
     });
   }
 
   onSubmit(): void {
     if (this.loginForm?.valid) {
-      this.store.dispatch(loginUser({
-        email: this.loginForm.get('email')?.value,
-        password: this.loginForm.get('password')?.value,
-      }));
+      this.store.dispatch(
+        loginUser({
+          email: this.loginForm.get("email")?.value,
+          password: this.loginForm.get("password")?.value,
+        }),
+      );
       this.loginForm.reset();
     }
   }

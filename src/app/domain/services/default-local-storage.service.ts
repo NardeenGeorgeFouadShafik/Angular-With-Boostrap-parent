@@ -1,8 +1,7 @@
 import { LocalStorageService } from "../outbound/local-storage.service";
 
 export class DefaultLocalStorageService implements LocalStorageService {
-
-  constructor() { }
+  constructor() {}
 
   setItem(key: string, value: any): void {
     localStorage.setItem(key, JSON.stringify(value));

@@ -5,6 +5,7 @@ export enum PrefixEnum {
 
 export enum AuthActionNamesEnum {
   LOG_IN_USER = "logInUser",
+  CHECK_LOGED_IN_USER = "checkLogedInUser",
 }
 
 export enum UserActionNamesEnum {

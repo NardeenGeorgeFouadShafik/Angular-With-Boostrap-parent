@@ -6,18 +6,27 @@ import { UserComponent } from "./adapter/view/user/user.component";
 
 export const routes: Routes = [
   {
-    path: '',
-    //canActivate: [AuthGuard],
+    path: "",
+    pathMatch: "full",
+    redirectTo: "/users",
+  },
+  {
+    path: "",
+    canActivate: [AuthGuard],
     component: HomeComponent,
     children: [
       {
-        path: 'users',
+        path: "users",
         component: UserComponent,
       },
     ],
   },
   {
-    path: 'login',
+    path: "login",
     component: LoginComponent,
   },
-];;
+  {
+    path: "**",
+    redirectTo: "/users",
+  },
+];

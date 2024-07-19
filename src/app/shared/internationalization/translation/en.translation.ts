@@ -15,15 +15,16 @@ export const enTranslation = {
   },
   auth: {
     welcome: "Welcome back!",
-    describtion: "Please login to access your<span class='primary-text-purple'>Spaces</span> Dashboard",
+    describtion:
+      "Please login to access your<span class='primary-text-purple'>Spaces</span> Dashboard",
     email: "Email",
     password: "Password",
     emailPlaceholder: "Email...",
     passwordPlaceholder: "Password...",
     forgetPassword: "Forget Password?",
-    login: "LOGIN"
+    login: "LOGIN",
   },
   navBar: {
-    home: " HOME"
-  }
+    home: " HOME",
+  },
 };

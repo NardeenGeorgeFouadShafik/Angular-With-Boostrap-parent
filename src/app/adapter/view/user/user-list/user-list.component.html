@@ -1,5 +1,11 @@
-  <div class="bg-white shadow rounded d-flex flex-column w-100 h-100 overflow-auto" >
-    <app-user-card *ngFor="let user of users" [user]="user" (selectUser)="onSelectUser($event)" [selectedUser]="selectedUser"></app-user-card>
-    <app-spinner></app-spinner>
-  </div>
-
+<div
+  class="bg-white shadow rounded d-flex flex-column w-100 h-100 overflow-auto"
+>
+  <app-user-card
+    *ngFor="let user of users"
+    [user]="user"
+    (selectUser)="onSelectUser($event)"
+    [selectedUser]="selectedUser"
+  ></app-user-card>
+  <app-spinner></app-spinner>
+</div>

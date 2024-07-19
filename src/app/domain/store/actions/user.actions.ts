@@ -96,11 +96,9 @@ export const userDeleted = createAction(
 );
 export const selectUser = createAction(
   "[User Page] Select User",
-  (user: Partial<User>) => ({ user }),
+  (user: Partial<User> | undefined) => ({ user }),
 );
 export const setUserDialogMode = createAction(
   "[User page] Set User Dialog Mode",
-  (
-    isEditUserDialogMode: boolean,
-  ) => ({ isEditUserDialogMode }),
+  (isEditUserDialogMode: boolean) => ({ isEditUserDialogMode }),
 );

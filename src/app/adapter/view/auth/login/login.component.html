@@ -10,72 +10,78 @@
       />
     </div>
     <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
-      <h3 class="mb-4 text-muted">{{"translation:auth.welcome" | i18next}}</h3>
-      <p class="text-muted mb-4" innerHTML="{{'translation:auth.describtion' | i18next}}">
-      </p>
+      <h3 class="mb-4 text-muted">
+        {{ "translation:auth.welcome" | i18next }}
+      </h3>
+      <p
+        class="text-muted mb-4"
+        innerHTML="{{ 'translation:auth.describtion' | i18next }}"
+      ></p>
       <form [formGroup]="loginForm!" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="email" class="form-label text-muted"
-            >{{"translation:auth.email" | i18next}} <span class="text-danger">*</span></label
+            >{{ "translation:auth.email" | i18next }}
+            <span class="text-danger">*</span></label
           >
           <input
             type="email"
             class="form-control"
             id="email"
             formControlName="email"
-            placeholder="{{'translation:auth.emailPlaceholder' | i18next}}"
+            placeholder="{{ 'translation:auth.emailPlaceholder' | i18next }}"
           />
           <div
             *ngIf="
               loginForm?.get('email')?.touched &&
-              loginForm?.controls?.['email']?.hasError('required')! 
+              loginForm?.controls?.['email']?.hasError('required')!
             "
             class="text-danger"
           >
-            {{"translation:auth.emailIsRequired" | i18next}}
+            {{ "translation:auth.emailIsRequired" | i18next }}
           </div>
           <div
-            *ngIf="
-              loginForm?.controls?.['email']?.hasError('pattern')!
-            "
+            *ngIf="loginForm?.controls?.['email']?.hasError('pattern')!"
             class="text-danger"
           >
-            {{"translation:auth.emailIsInvalid" | i18next}}
+            {{ "translation:auth.emailIsInvalid" | i18next }}
           </div>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label text-muted"
-            >{{"translation:auth.password" | i18next}} <span class="text-danger">*</span></label
+            >{{ "translation:auth.password" | i18next }}
+            <span class="text-danger">*</span></label
           >
           <input
             type="password"
             class="form-control"
             id="password"
             formControlName="password"
-            placeholder="{{'translation:auth.passwordPlaceholder' | i18next}}"
+            placeholder="{{ 'translation:auth.passwordPlaceholder' | i18next }}"
           />
           <div
             *ngIf="
               loginForm?.get('password')?.touched &&
-              loginForm?.controls?.['password']?.hasError('required')! 
+              loginForm?.controls?.['password']?.hasError('required')!
             "
             class="text-danger"
           >
-            {{"translation:auth.passwordIsRequired" | i18next}}
+            {{ "translation:auth.passwordIsRequired" | i18next }}
           </div>
         </div>
         <div class="mb-3 d-flex justify-content-between">
           <a
             href="#"
             class="text-muted primary-text-purple text-decoration-none"
-            ><span class="primary-text-purple">{{"translation:auth.forgetPassword" | i18next}}</span></a
+            ><span class="primary-text-purple">{{
+              "translation:auth.forgetPassword" | i18next
+            }}</span></a
           >
           <button
             type="submit"
             class="btn btn-primary primary-btn-purple no-border border-raduis px-4 py-2"
             [disabled]="loginForm?.invalid"
           >
-            {{"translation:auth.login" | i18next}}
+            {{ "translation:auth.login" | i18next }}
           </button>
         </div>
       </form>

@@ -12,17 +12,17 @@ import { UserActionsComponent } from "../user-actions/user-actions.component";
     CommonModule,
     UserCardComponent,
     SpinnerComponent,
-    UserActionsComponent
+    UserActionsComponent,
   ],
   templateUrl: "./user-list.component.html",
   styleUrl: "./user-list.component.scss",
 })
-export class UserListComponent{
+export class UserListComponent {
   @Input() users?: Partial<User>[];
   @Input() selectedUser?: Partial<User>;
-  @Output() selectUser = new EventEmitter<Partial<User>>;
-  
-  constructor() { }
+  @Output() selectUser = new EventEmitter<Partial<User>>();
+
+  constructor() {}
   onSelectUser(user: Partial<User>) {
     this.selectUser.emit(user);
   }

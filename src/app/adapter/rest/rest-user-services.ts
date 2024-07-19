@@ -11,10 +11,13 @@ export class RestUserService implements UserService {
     environment.backendUrl + "api/users/";
 
   constructor(private httpClient: HttpClient) {}
-  createUser(user:Partial<User>): Observable<Partial<User>> {
-    return this.httpClient.post<Partial<User>>(RestUserService.USERS_ENDPOINT_BASE_URL, {
-      ...user,
-    });
+  createUser(user: Partial<User>): Observable<Partial<User>> {
+    return this.httpClient.post<Partial<User>>(
+      RestUserService.USERS_ENDPOINT_BASE_URL,
+      {
+        ...user,
+      },
+    );
   }
   getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(RestUserService.USERS_ENDPOINT_BASE_URL);

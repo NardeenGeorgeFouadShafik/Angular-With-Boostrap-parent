@@ -62,7 +62,7 @@ export const appConfig: ApplicationConfig = {
     },
     ...I18N_PROVIDERS,
     ...REST_SERVICES,
-        MessageService,
+    MessageService,
     ConfirmationService,
   ],
 };

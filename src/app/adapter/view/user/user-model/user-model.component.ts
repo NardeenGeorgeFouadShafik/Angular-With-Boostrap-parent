@@ -1,13 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { User } from '../../../../domain/models/user.model';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from "@angular/forms";
+import { User } from "../../../../domain/models/user.model";
 
 @Component({
-  selector: 'app-user-model',
+  selector: "app-user-model",
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './user-model.component.html',
-  styleUrl: './user-model.component.scss'
+  templateUrl: "./user-model.component.html",
+  styleUrl: "./user-model.component.scss",
 })
 export class UserModelComponent implements OnInit {
   userForm?: FormGroup;
@@ -17,8 +22,8 @@ export class UserModelComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
-      name: ['', Validators.required],
-      jobTitle: ['', Validators.required]
+      name: ["", Validators.required],
+      jobTitle: ["", Validators.required],
     });
   }
 
@@ -26,8 +31,8 @@ export class UserModelComponent implements OnInit {
     if (this.userForm?.valid) {
       this.submitUser.emit({
         ...this.selectedUser,
-        jobTitle: this.userForm.get('jobTitle')?.value,
-        name: this.userForm.get('name')?.value
+        jobTitle: this.userForm.get("jobTitle")?.value,
+        name: this.userForm.get("name")?.value,
       });
       this.userForm.reset();
     }
@@ -37,6 +42,6 @@ export class UserModelComponent implements OnInit {
     if (this.selectedUser && this.selectedUser.id) {
       return `${this.selectedUser.first_name} ${this.selectedUser.last_name}`;
     }
-    return '';
+    return "";
   }
 }

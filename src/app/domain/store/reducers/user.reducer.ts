@@ -25,15 +25,18 @@ export const userReducer = createReducer(
     };
   }),
   on(UserActions.userAdded, (state, action) => {
-    const nameArr = action.user?.name?.split(/ (.*)/)
+    const nameArr = action.user?.name?.split(/ (.*)/);
 
     return {
       ...state,
-      users: [...(state.users || []), {
-        ...action.user,
-        first_name: nameArr?.[0],
+      users: [
+        ...(state.users || []),
+        {
+          ...action.user,
+          first_name: nameArr?.[0],
           last_name: nameArr?.[1],
-       }],
+        },
+      ],
     };
   }),
   on(UserActions.userDeleted, (state, action) => {
@@ -63,13 +66,13 @@ export const userReducer = createReducer(
   }),
 
   on(UserActions.selectUser, (state, action) => {
-    const isSameUser = state.selectedUser?.id === action.user.id;
+    const isSameUser = state.selectedUser?.id === action.user?.id;
     return {
       ...state,
       selectedUser: isSameUser ? undefined : action.user,
     };
   }),
-    on(UserActions.setUserDialogMode, (state, action) => {
+  on(UserActions.setUserDialogMode, (state, action) => {
     return {
       ...state,
       isEditUserDialogMode: action.isEditUserDialogMode,

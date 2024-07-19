@@ -3,21 +3,24 @@ import {
   Component,
   OnDestroy,
   OnInit,
-} from '@angular/core';
-import { Store } from '@ngrx/store';
-import { MessageService } from 'primeng/api';
-import { ToastCloseEvent, ToastModule } from 'primeng/toast';
-import { Subscription, distinctUntilChanged, filter } from 'rxjs';
-import { AppState } from '../../../domain/store/reducers/app.reducer';
-import { isErrorExist, selectErrorMessage } from '../../../domain/store/selectors/error.selectors';
-import { clearError } from '../../../domain/store/actions/errors.actions';
+} from "@angular/core";
+import { Store } from "@ngrx/store";
+import { MessageService } from "primeng/api";
+import { ToastCloseEvent, ToastModule } from "primeng/toast";
+import { Subscription, distinctUntilChanged, filter } from "rxjs";
+import { AppState } from "../../../domain/store/reducers/app.reducer";
+import {
+  isErrorExist,
+  selectErrorMessage,
+} from "../../../domain/store/selectors/error.selectors";
+import { clearError } from "../../../domain/store/actions/errors.actions";
 
 @Component({
-  selector: 'app-display-error',
+  selector: "app-display-error",
   standalone: true,
   imports: [ToastModule],
-  templateUrl: './display-error.component.html',
-  styleUrl: './display-error.component.scss',
+  templateUrl: "./display-error.component.html",
+  styleUrl: "./display-error.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DisplayErrorComponent implements OnInit, OnDestroy {
@@ -37,15 +40,15 @@ export class DisplayErrorComponent implements OnInit, OnDestroy {
             .pipe(
               distinctUntilChanged(),
               filter(
-                (errorMessage) => errorMessage !== '' && errorMessage !== ' ',
+                (errorMessage) => errorMessage !== "" && errorMessage !== " ",
               ),
             )
             .subscribe((errorMessage) => {
               if (errorMessage) {
                 this.messageService.clear();
                 this.messageService.add({
-                  severity: 'error',
-                  summary: 'Error',
+                  severity: "error",
+                  summary: "Error",
                   detail: errorMessage,
                   sticky: true,
                 });

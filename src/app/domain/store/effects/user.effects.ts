@@ -14,7 +14,10 @@ import {
 } from "../actions/user.actions";
 import { AppState } from "../reducers/app.reducer";
 import { selectSelectedUser } from "../selectors/user.selectors";
-import { LOCAL_STORAGE_SERVICE, LocalStorageService } from "../../outbound/local-storage.service";
+import {
+  LOCAL_STORAGE_SERVICE,
+  LocalStorageService,
+} from "../../outbound/local-storage.service";
 
 @Injectable()
 export class UserEffects {
@@ -35,7 +38,7 @@ export class UserEffects {
       switchMap((action) => {
         return this.userService.getUsers();
       }),
-      map((users:any) => {
+      map((users: any) => {
         return usersLoaded(users.data);
       }),
     ),
@@ -71,13 +74,12 @@ export class UserEffects {
           );
       }),
       map(([user, selectedUser]) => {
-        const nameArr = user?.name?.split(/ (.*)/)
+        const nameArr = user?.name?.split(/ (.*)/);
         return userUpdated({
           ...selectedUser,
           ...user!,
           first_name: nameArr?.[0],
           last_name: nameArr?.[1],
-
         });
       }),
     ),

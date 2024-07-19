@@ -1,19 +1,19 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { I18NextPipe } from 'angular-i18next';
-import { MessageService } from 'primeng/api';
-import { ToastCloseEvent, ToastModule } from 'primeng/toast';
-import { Subscription } from 'rxjs';
-import { clearSuccessKey } from '../../../domain/store/actions/success.actions';
-import { AppState } from '../../../domain/store/reducers/app.reducer';
-import { selectSuccessKey } from '../../../domain/store/selectors/success.selectors';
+import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { I18NextPipe } from "angular-i18next";
+import { MessageService } from "primeng/api";
+import { ToastCloseEvent, ToastModule } from "primeng/toast";
+import { Subscription } from "rxjs";
+import { clearSuccessKey } from "../../../domain/store/actions/success.actions";
+import { AppState } from "../../../domain/store/reducers/app.reducer";
+import { selectSuccessKey } from "../../../domain/store/selectors/success.selectors";
 
 @Component({
-  selector: 'app-display-success',
+  selector: "app-display-success",
   standalone: true,
   imports: [ToastModule],
-  templateUrl: './display-success.component.html',
-  styleUrl: './display-success.component.scss',
+  templateUrl: "./display-success.component.html",
+  styleUrl: "./display-success.component.scss",
   providers: [MessageService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -31,12 +31,12 @@ export class DisplaySuccessComponent {
         if (successMessageKey) {
           this.messageService.clear();
           this.messageService.add({
-            severity: 'success',
-            summary: 'Success',
+            severity: "success",
+            summary: "Success",
             detail: this.i18nextPipe.transform(
-              'translation:successToast.' +
+              "translation:successToast." +
                 successMessageKey +
-                '.successMessage',
+                ".successMessage",
             ),
             sticky: true,
           });

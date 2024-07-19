@@ -14,10 +14,13 @@ export class RestAuthService implements AuthService {
 
   constructor(private httpClient: HttpClient) {}
   login(userCredentail: UserCredentail): Observable<Token> {
-    console.log(RestAuthService.AUTH_ENDPOINT_BASE_URL)
-    const t = this.httpClient.post<Token>(RestAuthService.AUTH_ENDPOINT_BASE_URL, {
-      ...userCredentail,
-    });
-    return t
+    console.log(RestAuthService.AUTH_ENDPOINT_BASE_URL);
+    const t = this.httpClient.post<Token>(
+      RestAuthService.AUTH_ENDPOINT_BASE_URL,
+      {
+        ...userCredentail,
+      },
+    );
+    return t;
   }
 }

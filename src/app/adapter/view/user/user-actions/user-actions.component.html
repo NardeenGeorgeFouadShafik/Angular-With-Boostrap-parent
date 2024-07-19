@@ -1,7 +1,12 @@
 <div
   class="d-flex flex-column align-items-center p-3 border rounded shadow-sm w-100 h-100 background"
 >
-  <button type="button" class="btn-close ms-auto" aria-label="Close"></button>
+  <button
+    type="button"
+    class="btn-close ms-auto"
+    aria-label="Close"
+    (click)="closeUserActions()"
+  ></button>
   <img
     [src]="
       selectedUser?.avatar ? selectedUser?.avatar : 'assets/images/avatar.png'
@@ -29,7 +34,6 @@
       class="btn btn-outline-secondary primary-outline-btn-purple border-raduis px-4 py-2 w-50 m-3 d-flex align-items-center"
       data-bs-toggle="modal"
       data-bs-target="#deleteConfirmationModal"
-      
     >
       <i class="bi bi-trash-fill me-2"></i> Delete
     </button>

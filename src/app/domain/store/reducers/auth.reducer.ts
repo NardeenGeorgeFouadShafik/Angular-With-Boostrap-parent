@@ -19,4 +19,10 @@ export const authReducer = createReducer(
       loggedIn: true,
     };
   }),
+  on(AuthActions.userLoggedInChecked, (state, action) => {
+    return {
+      ...state,
+      loggedIn: action.isUserLoggedIn,
+    };
+  }),
 );

@@ -14,14 +14,15 @@
         [selectedUser]="(selectedUser$ | async) ?? undefined"
       ></app-user-list>
     </div>
-    @if((selectedUser$ | async)?.id){
-    <div class="w-25 h-100">
-      <app-user-actions
-        class="h-100"
-        [selectedUser]="(selectedUser$ | async) ?? undefined"
-        (activeEditMode)="onEditUser()"
-      ></app-user-actions>
-    </div>
+    @if ((selectedUser$ | async)?.id) {
+      <div class="w-25 h-100">
+        <app-user-actions
+          class="h-100"
+          [selectedUser]="(selectedUser$ | async) ?? undefined"
+          (activeEditMode)="onEditUser()"
+          (closeUserAction)="onCloseUserActions()"
+        ></app-user-actions>
+      </div>
     }
   </div>
 </div>
@@ -29,4 +30,7 @@
   (submitUser)="onSubmitUser($event)"
   [selectedUser]="(selectedUser$ | async) ?? undefined"
 ></app-user-model>
-<app-delete-confirmation  (deleteUserClicked)="deleteUser($event)" [selectedUser]="(selectedUser$ | async) ?? undefined"></app-delete-confirmation>
+<app-delete-confirmation
+  (deleteUserClicked)="deleteUser($event)"
+  [selectedUser]="(selectedUser$ | async) ?? undefined"
+></app-delete-confirmation>

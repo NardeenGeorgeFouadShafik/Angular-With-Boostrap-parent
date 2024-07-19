@@ -1,3 +1,1 @@
-export const enError = {
-   
-};
+export const enError = {};

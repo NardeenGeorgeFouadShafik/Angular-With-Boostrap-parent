@@ -3,5 +3,5 @@ export enum GeneralMessageKeyEnum {
   INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
   FORBIDDEN = "FORBIDDEN",
   UNAUTHORIZED = "UNAUTHORIZED",
-  INVALID_CREDENTIALS = 'InvalidCredentials'
+  INVALID_CREDENTIALS = "InvalidCredentials",
 }
