@@ -3,11 +3,12 @@
 >
   @if (isMoreUsersLoading) {
     <div class="dotted-spinner mb-2">
+       @for (dot of dots; track dot; let i = $index) {
       <div
-        *ngFor="let dot of dots; let i = index"
         class="dot"
         [ngStyle]="{ 'animation-delay': i * 0.1 + 's' }"
       ></div>
+       }
     </div>
   } @else {
     <div>

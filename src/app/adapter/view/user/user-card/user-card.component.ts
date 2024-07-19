@@ -1,5 +1,12 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Input, Output, output } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  output,
+} from "@angular/core";
 import { User } from "../../../../domain/models/user.model";
 
 @Component({
@@ -8,6 +15,7 @@ import { User } from "../../../../domain/models/user.model";
   imports: [CommonModule],
   templateUrl: "./user-card.component.html",
   styleUrl: "./user-card.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserCardComponent {
   @Input() user?: Partial<User>;

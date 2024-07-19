@@ -30,21 +30,21 @@
             formControlName="email"
             placeholder="{{ 'translation:auth.emailPlaceholder' | i18next }}"
           />
+          @if(loginForm?.get('email')?.touched &&
+              loginForm?.controls?.['email']?.hasError('required')!){
           <div
-            *ngIf="
-              loginForm?.get('email')?.touched &&
-              loginForm?.controls?.['email']?.hasError('required')!
-            "
             class="text-danger"
           >
-            {{ "translation:auth.emailIsRequired" | i18next }}
+            {{ "validation:auth.emailIsRequired" | i18next }}
           </div>
+        }
+        @if(loginForm?.controls?.['email']?.hasError('pattern')!){
           <div
-            *ngIf="loginForm?.controls?.['email']?.hasError('pattern')!"
             class="text-danger"
           >
-            {{ "translation:auth.emailIsInvalid" | i18next }}
+            {{ "validation:auth.emailIsInvalid" | i18next }}
           </div>
+        }
         </div>
         <div class="mb-3">
           <label for="password" class="form-label text-muted"
@@ -58,15 +58,14 @@
             formControlName="password"
             placeholder="{{ 'translation:auth.passwordPlaceholder' | i18next }}"
           />
+          @if(loginForm?.get('password')?.touched &&
+              loginForm?.controls?.['password']?.hasError('required')!){
           <div
-            *ngIf="
-              loginForm?.get('password')?.touched &&
-              loginForm?.controls?.['password']?.hasError('required')!
-            "
             class="text-danger"
           >
-            {{ "translation:auth.passwordIsRequired" | i18next }}
+            {{ "validation:auth.passwordIsRequired" | i18next }}
           </div>
+        }
         </div>
         <div class="mb-3 d-flex justify-content-between">
           <a

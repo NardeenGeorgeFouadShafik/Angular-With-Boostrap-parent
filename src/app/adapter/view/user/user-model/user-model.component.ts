@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from "@angular/core";
 import {
   FormGroup,
   FormBuilder,
@@ -13,6 +20,7 @@ import { User } from "../../../../domain/models/user.model";
   imports: [ReactiveFormsModule],
   templateUrl: "./user-model.component.html",
   styleUrl: "./user-model.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserModelComponent implements OnInit {
   userForm?: FormGroup;

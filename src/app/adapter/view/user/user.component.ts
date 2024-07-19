@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { UserHeaderComponent } from "./user-header/user-header.component";
 import { UserListComponent } from "./user-list/user-list.component";
 import { Store } from "@ngrx/store";
@@ -41,6 +41,7 @@ import {
   ],
   templateUrl: "./user.component.html",
   styleUrl: "./user.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserComponent {
   users$?: Observable<Partial<User>[] | undefined>;

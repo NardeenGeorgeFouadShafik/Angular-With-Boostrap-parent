@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from "@angular/core";
 import { User } from "../../../domain/models/user.model";
 
 @Component({
@@ -7,6 +13,7 @@ import { User } from "../../../domain/models/user.model";
   imports: [],
   templateUrl: "./delete-confirmation.component.html",
   styleUrl: "./delete-confirmation.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeleteConfirmationComponent {
   @Input() selectedUser?: Partial<User>;

@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
@@ -18,6 +18,7 @@ import { I18NextModule } from "angular-i18next";
   imports: [CommonModule, ReactiveFormsModule, I18NextModule],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
   loginForm?: FormGroup;

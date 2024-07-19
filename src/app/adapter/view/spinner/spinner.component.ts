@@ -1,5 +1,11 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from "@angular/core";
 
 @Component({
   selector: "app-spinner",
@@ -7,6 +13,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
   imports: [CommonModule],
   templateUrl: "./spinner.component.html",
   styleUrl: "./spinner.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpinnerComponent {
   @Input() hasMoreData?: boolean;

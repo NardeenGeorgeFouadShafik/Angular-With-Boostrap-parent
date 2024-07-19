@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from "@angular/core";
 import { User } from "../../../../domain/models/user.model";
 
 @Component({
@@ -7,6 +13,7 @@ import { User } from "../../../../domain/models/user.model";
   imports: [],
   templateUrl: "./user-actions.component.html",
   styleUrl: "./user-actions.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserActionsComponent {
   @Input() selectedUser?: Partial<User>;
